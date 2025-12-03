@@ -1,0 +1,667 @@
+<index.html lang="es">
+    echo "# Grupo-102" >> README.md 
+git init 
+git add README.md 
+git commit -m "primer commit" 
+git branch -M main 
+git remote add origin https://github.com/jonathangomez1308-ship-it/Grupo-102.git
+ git push -u origin main
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida Saludable y Pensamiento Crítico: Edición Móvil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f3f4f6; /* Gris más claro para fondo móvil */
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Estilos base de la página (Móvil Primero) */
+        .magazine-page {
+            width: 100%;
+            max-width: 850px; 
+            /* Altura automática en móvil para que quepa todo el texto */
+            min-height: 100vh; 
+            background: white;
+            margin: 0 auto 20px auto; /* Separación entre páginas */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-content {
+            padding: 2rem 1.5rem; /* Padding más pequeño para móviles */
+            flex-grow: 1;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-number {
+            position: relative; /* Relativo en móvil para que no tape contenido */
+            margin-top: 2rem;
+            text-align: right;
+            padding-right: 1.5rem;
+            padding-bottom: 1rem;
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: bold;
+            z-index: 20;
+        }
+
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 3.5rem; /* Letra capital más pequeña en móvil */
+            line-height: 0.8;
+            font-weight: bold;
+            margin-right: 0.15em;
+            color: #1e3a8a;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 1rem;
+            text-align: justify;
+        }
+        
+        .img-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* MEDIA QUERY: PANTALLAS GRANDES (Escritorio/Tablet) */
+        @media (min-width: 768px) {
+            body {
+                background-color: #525252;
+                padding: 30px 0;
+            }
+            .magazine-page {
+                margin: 30px auto;
+                height: 1150px; /* Altura fija regresa en escritorio para look revista */
+                min-height: 1150px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            }
+            .page-content {
+                padding: 50px;
+            }
+            .page-number {
+                position: absolute;
+                bottom: 20px;
+                right: 40px;
+                margin-top: 0;
+                padding: 0;
+            }
+            .drop-cap::first-letter {
+                font-size: 4.2rem;
+            }
+        }
+
+        /* MEDIA QUERY: IMPRESIÓN */
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; }
+            .magazine-page {
+                width: 100% !important; 
+                height: auto !important;
+                min-height: 0 !important;
+                margin: 0 !important; 
+                box-shadow: none !important;
+                page-break-after: always !important;
+                border: none !important;
+            }
+            .page-content { padding: 20px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="magazine-page p-0 relative bg-gray-900 h-screen md:h-auto">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1559586616-361e18714958?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Estatua Griega Arte">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/95 via-blue-900/50 to-transparent z-1"></div>
+
+        <div class="relative z-10 h-full flex flex-col justify-between p-6 md:p-12 text-white">
+            <div class="border-t-4 border-yellow-500 pt-6 mt-4 md:mt-0">
+                <h2 class="text-lg md:text-xl tracking-[0.2em] md:tracking-[0.3em] uppercase font-light">Proyecto Integrador</h2>
+                <p class="text-xs md:text-sm opacity-90 mt-2 font-mono">Pensamiento Filosófico y Humanidades 1</p>
+            </div>
+
+            <div class="text-center my-auto py-10 md:py-0">
+                <h1 class="text-5xl md:text-8xl font-serif font-bold leading-none mb-4 md:mb-6 drop-shadow-2xl">
+                    VIDA<br>
+                    <span class="text-yellow-400 italic">SALUDABLE</span>
+                </h1>
+                <div class="h-1 w-24 md:w-40 bg-white mx-auto mb-4 md:mb-6"></div>
+                <p class="text-xl md:text-3xl font-light tracking-wider uppercase">
+                    &amp; Pensamiento Crítico
+                </p>
+                <div class="mt-8 md:mt-10 inline-block bg-black/50 backdrop-blur-md px-6 md:px-10 py-3 md:py-4 rounded-full border border-white/30">
+                    <p class="text-sm md:text-lg italic font-serif">"Una mirada filosófica al bienestar integral"</p>
+                </div>
+            </div>
+
+            <div class="mt-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 bg-black/40 p-6 md:p-8 rounded-xl backdrop-blur-md border-l-4 md:border-l-8 border-yellow-500">
+                <div>
+                    <h3 class="font-bold text-yellow-400 mb-2 md:mb-3 uppercase text-xs md:text-sm tracking-wider">En esta edición:</h3>
+                    <ul class="text-xs md:text-sm space-y-1 md:space-y-2 font-light">
+                        <li><i class="fas fa-chevron-right text-xs mr-2"></i> Foucault: Tecnologías del Yo</li>
+                        <li><i class="fas fa-chevron-right text-xs mr-2"></i> La Virtud Aristotélica</li>
+                        <li><i class="fas fa-chevron-right text-xs mr-2"></i> Bioética y Ecología</li>
+                    </ul>
+                </div>
+                <div class="text-left md:text-right flex flex-col justify-end mt-4 md:mt-0">
+                    <p class="font-bold text-lg md:text-xl">Noviembre 2025</p>
+                    <p class="text-xs md:text-sm opacity-80">Volumen 1 | Edición Especial</p>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:block page-number text-white border-white">Página 1</div>
+    </div>
+
+    <div class="magazine-page">
+        <div class="page-content">
+            <header class="border-b-4 border-blue-900 pb-4 md:pb-6 mb-6 md:mb-10 flex flex-col md:flex-row justify-between items-start md:items-end">
+                <h2 class="text-4xl md:text-6xl font-serif text-blue-900 font-bold mb-2 md:mb-0">Editorial</h2>
+                <span class="text-gray-500 text-xs md:text-sm uppercase font-bold tracking-wider">La Voz Estudiantil</span>
+            </header>
+
+            <div class="flex flex-col h-full gap-6 md:gap-8">
+                <div class="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
+                    <div class="w-full md:w-1/2">
+                        <div class="img-container rounded-lg shadow-lg h-48 md:h-72">
+                            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&amp;w=600&amp;auto=format&amp;fit=crop" alt="Biblioteca y estudio">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 flex flex-col justify-center bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-400">
+                         <blockquote class="text-lg md:text-2xl font-serif text-blue-900 italic leading-relaxed">
+                            "La filosofía no es un templo para la adoración de cenizas, sino el fuego que enciende la antorcha de la vida consciente."
+                        </blockquote>
+                    </div>
+                </div>
+                
+                <div class="text-gray-800 flex-grow text-base md:text-lg">
+                    <p class="drop-cap">
+                        ¿Qué significa realmente vivir saludablemente en el siglo XXI? En un mundo post-pandemia, saturado de "fake news", dietas milagrosas y una presión estética abrumadora, la filosofía emerge como necesidad.
+                    </p>
+                    <p>
+                        Este proyecto integrador nace de una inquietud colectiva: recuperar la soberanía sobre nuestros cuerpos y mentes. Entendemos que la salud no es estática, sino un *florecimiento* constante.
+                    </p>
+                    <p>
+                        A través de estas páginas, exploraremos cómo el <strong>pensamiento crítico</strong> actúa como un sistema inmunológico mental. Si Sócrates afirmó que "una vida sin examen no merece la pena ser vivida", nosotros añadimos que "una vida sin cuidado consciente no puede ser libre".
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 2</div>
+    </div>
+
+    <div class="magazine-page">
+        <div class="h-4 md:h-8 bg-blue-900 w-full absolute top-0 left-0"></div>
+        <div class="page-content mt-4 md:mt-6">
+            <h2 class="text-3xl md:text-5xl font-serif text-gray-900 font-bold leading-tight md:leading-none mb-2 md:mb-4">Filosofía del Bienestar</h2>
+            <h3 class="text-xl md:text-3xl font-serif text-yellow-600 italic mb-6 md:mb-10 border-b-2 border-gray-200 pb-4">Más Allá del Cuerpo Físico</h3>
+
+            <div class="flex flex-col h-full">
+                <div class="text-gray-800 columns-1 md:columns-2 gap-8 md:gap-12 mb-8">
+                    <p>
+                        En la antigüedad grecorromana, la medicina y la filosofía eran hermanas. Galeno afirmaba que "el mejor médico es también filósofo". Cuidar el cuerpo (soma) requería entender el alma (psique). El aforismo <em>"Mens sana in corpore sano"</em> era una plegaria por la integridad.
+                    </p>
+                    <p>
+                        <strong>Foucault y el "Cuidado de Sí":</strong>
+                        Michel Foucault rescató el concepto de <em>Epimeleia heautou</em>. El sujeto no "es", sino que "se hace" a través de las "tecnologías del yo" (escritura, meditación, dieta).
+                    </p>
+                    <p>
+                        Vivir saludablemente hoy es resistencia política. El pensamiento crítico nos permite practicar la <strong>Parrhesía</strong> (hablar franco): admitir qué hábitos nos destruyen y cambiarlos.
+                    </p>
+                    <p>
+                        Detenerse ante un estante del súper y preguntar "¿Esto nutre mi vida o solo a una industria?" es el primer paso de una revolución interior. La salud se convierte en práctica de libertad.
+                    </p>
+                </div>
+
+                <div class="w-full mt-auto">
+                    <div class="img-container rounded-lg shadow-xl h-48 md:h-80">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Alimentación Saludable">
+                    </div>
+                    <p class="text-xs md:text-sm text-gray-600 mt-4 text-center italic bg-gray-100 p-3 rounded-lg border border-gray-200">
+                        <i class="fas fa-info-circle mr-2"></i>La "Diaita" griega abarcaba alimentación, ejercicio y sueño.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 3</div>
+    </div>
+
+    <div class="magazine-page bg-gray-50">
+        <div class="page-content">
+            <div class="flex items-center mb-6 md:mb-10">
+                <div class="w-12 md:w-20 h-2 bg-blue-900 mr-4 md:mr-6 rounded-full"></div>
+                <h3 class="text-2xl md:text-4xl font-serif text-blue-900 font-bold">Eudaimonia vs. Hedonismo</h3>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6 md:gap-10 h-full">
+                <div class="w-full md:w-2/3 flex flex-col justify-between">
+                    <div class="text-base md:text-lg text-gray-800">
+                        <p>
+                            Distinción crucial: <strong>Hedonismo</strong> (placer inmediato) vs. <strong>Eudaimonia</strong> (plenitud/realización Aristotélica).
+                        </p>
+                        <p>
+                            Nuestra sociedad es hiper-hedonista. Buscamos el "subidón" de dopamina. Pero este placer es efímero. La Eudaimonia sugiere que el bienestar real proviene de la <strong>Virtud (Areté)</strong>.
+                        </p>
+                        <div class="bg-white p-6 md:p-8 rounded-xl shadow-md border-l-8 border-blue-900 my-6 md:my-8">
+                            <h4 class="font-bold text-blue-900 mb-4 text-lg md:text-xl"><i class="fas fa-balance-scale mr-2"></i>El "Justo Medio"</h4>
+                            <p class="text-sm md:text-base m-0 leading-relaxed">
+                                Equilibrio (Mesotes):
+                                <br>
+                                • <strong>Defecto:</strong> Anorexia / Sedentarismo.<br>
+                                • <strong>Exceso:</strong> Gula / Vigorexia.<br>
+                                • <strong>Virtud:</strong> Templanza.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 overflow-x-auto">
+                        <h4 class="font-serif font-bold text-xl md:text-2xl mb-4 text-gray-800">Comparativa</h4>
+                        <table class="w-full text-sm md:text-base bg-white shadow-lg rounded-lg min-w-[300px]">
+                            <thead class="bg-blue-900 text-white">
+                                <tr>
+                                    <th class="p-3 md:p-4 text-left">Perspectiva</th>
+                                    <th class="p-3 md:p-4 text-left">Objetivo</th>
+                                    <th class="p-3 md:p-4 text-left">Resultado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-blue-50">
+                                    <td class="p-3 md:p-4 font-bold text-blue-900">Hedonismo</td>
+                                    <td class="p-3 md:p-4">Placer ya.</td>
+                                    <td class="p-3 md:p-4">Vacío.</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50">
+                                    <td class="p-3 md:p-4 font-bold text-blue-900">Estoicismo</td>
+                                    <td class="p-3 md:p-4">Razón.</td>
+                                    <td class="p-3 md:p-4">Paz.</td>
+                                </tr>
+                                <tr class="hover:bg-blue-50">
+                                    <td class="p-3 md:p-4 font-bold text-blue-900">Aristóteles</td>
+                                    <td class="p-3 md:p-4">Virtud.</td>
+                                    <td class="p-3 md:p-4">Salud.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/3 flex flex-col md:h-full mt-6 md:mt-0">
+                    <div class="img-container rounded-lg shadow-xl h-64 md:h-full bg-white p-4 border border-gray-200">
+                        <img src="https://m.media-amazon.com/images/I/71Kheot2fQL.jpg" alt="Aristóteles" style="object-fit: contain;">
+                    </div>
+                    <div class="bg-blue-900 text-white p-4 rounded-b-lg mt-[-5px] relative z-10 text-center">
+                        <p class="font-bold text-lg">Aristóteles</p>
+                        <p class="text-xs italic opacity-80">"Somos lo que hacemos repetidamente."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 4</div>
+    </div>
+
+    <div class="magazine-page">
+        <div class="page-content">
+            <div class="flex items-center mb-6 md:mb-10 border-b-2 border-purple-200 pb-4 md:pb-6">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-purple-600 text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-bold mr-4 md:mr-6 shadow-lg"><i class="fas fa-brain"></i></div>
+                <h2 class="text-3xl md:text-5xl font-serif text-purple-900 font-bold">Salud Mental</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-10">
+                <div class="flex flex-col justify-center text-base md:text-lg order-2 md:order-1">
+                    <p class="text-gray-700 font-medium mb-6">
+                        La ansiedad nace de la brecha entre la realidad y nuestras expectativas.
+                    </p>
+                    <p class="text-gray-700">
+                        Los estoicos nos regalan la <strong>Dicotomía del Control</strong>: Hay cosas que dependen de nosotros (juicios, acciones) y cosas que no (clima, opinión ajena). La libertad mental (Ataraxia) nace al enfocarse en lo interno.
+                    </p>
+                </div>
+                <div class="img-container rounded-xl shadow-xl h-48 md:h-64 rotate-0 md:rotate-2 transform hover:rotate-0 transition duration-500 order-1 md:order-2">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&amp;w=600&amp;auto=format&amp;fit=crop" alt="Paz Mental Zen">
+                </div>
+            </div>
+
+            <div class="bg-purple-50 p-6 md:p-10 rounded-2xl border border-purple-100 flex-grow flex flex-col">
+                <h3 class="text-xl md:text-2xl font-bold text-purple-800 mb-6 md:mb-8 text-center border-b border-purple-200 pb-4">Botiquín Filosófico</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 text-center mb-8">
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-md">
+                        <div class="bg-purple-100 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-pause text-purple-600 text-xl md:text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">La Pausa</h4>
+                        <p class="text-sm text-gray-600">No reacciones. Razón antes que emoción.</p>
+                    </div>
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-md">
+                        <div class="bg-purple-100 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-globe-americas text-purple-600 text-xl md:text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Perspectiva</h4>
+                        <p class="text-sm text-gray-600">"Vista de pájaro". El problema es minúsculo.</p>
+                    </div>
+                    <div class="bg-white p-4 md:p-6 rounded-xl shadow-md">
+                        <div class="bg-purple-100 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-pen-fancy text-purple-600 text-xl md:text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Examen</h4>
+                        <p class="text-sm text-gray-600">"¿Qué mal he curado hoy? ¿En qué mejoré?"</p>
+                    </div>
+                </div>
+
+                <div class="mt-auto bg-white p-4 md:p-6 rounded-lg border-l-4 border-purple-600 shadow-inner">
+                    <h4 class="font-bold text-purple-900 flex items-center text-sm md:text-base"><i class="fas fa-spa mr-2"></i>Ejercicio: Premeditatio Malorum</h4>
+                    <p class="text-xs md:text-sm text-gray-600 m-0 mt-2">
+                        Prepárate mentalmente para las dificultades del día, y no te tomarán por sorpresa. (Marco Aurelio)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 5</div>
+    </div>
+
+    <div class="magazine-page bg-red-50">
+        <div class="page-content">
+            <h2 class="text-4xl md:text-6xl font-serif font-bold text-red-900 mb-6 md:mb-10 text-right border-b-8 border-red-200 pb-4 inline-block w-full">Libertad Radical</h2>
+            
+            <div class="flex flex-col-reverse md:flex-row-reverse gap-8 md:gap-12 h-full items-center">
+                <div class="w-full md:w-1/2 text-justify text-gray-800 flex flex-col justify-center">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-red-800 leading-tight">"Condenados a ser libres"</h3>
+                    <p class="text-base md:text-lg">
+                        Jean-Paul Sartre llamaba <strong>Mala Fe</strong> a decir "no tengo opción". Excusas como "mi genética" o "no tengo tiempo" evaden la responsabilidad.
+                    </p>
+                    <p class="text-base md:text-lg">
+                        La existencia precede a la esencia. <strong>Tu cuerpo es tu proyecto vital.</strong> Cada elección esculpe quién eres.
+                    </p>
+                    <div class="bg-white p-6 rounded-lg shadow-lg border-l-8 border-red-500 mt-6">
+                        <p class="m-0 font-medium text-red-900 text-sm md:text-base">
+                            <strong>La Angustia:</strong> Es el vértigo de la libertad. La vida auténtica requiere el coraje de elegir el bienestar propio, sin excusas.
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 h-64 md:h-full">
+                    <div class="img-container rounded-xl shadow-2xl h-full bg-white p-20 rotate-0 ">
+                        <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&amp;w=600&amp;auto=format&amp;fit=crop" alt="Camino Libre">
+                        <p class="text-center text-xs md:text-sm text-gray-500 mt-4 italic">"El hombre es lo que hace con lo que hicieron de él."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 6</div>
+    </div>
+
+    <div class="magazine-page">
+        <div class="page-content">
+            <div class="border-l-8 md:border-l-[12px] border-green-600 pl-4 md:pl-8 mb-6 md:mb-10">
+                <h2 class="text-4xl md:text-6xl font-serif text-gray-900 font-bold">Bioética</h2>
+                <h3 class="text-xl md:text-3xl text-green-700 uppercase tracking-widest mt-2 font-light">Salud y Planeta</h3>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 md:gap-12 h-full">
+                <div class="w-full md:w-1/2 text-base text-justify text-gray-800 flex flex-col gap-4 md:gap-6">
+                    <p>
+                        La salud no es privada, Aristóteles nos recuerda que somos "Animales Políticos". Nuestras decisiones afectan a la comunidad.
+                    </p>
+                    <p>
+                        <strong>Hans Jonas:</strong> "Obra de tal modo que los efectos de tu acción sean compatibles con la permanencia de la vida". La comida chatarra daña arterias y el planeta.
+                    </p>
+                    <div class="bg-green-50 p-6 md:p-8 rounded-2xl border border-green-200 text-green-900 flex-grow flex flex-col justify-center shadow-sm">
+                        <h4 class="font-bold mb-2 md:mb-4 text-lg md:text-xl flex items-center"><i class="fas fa-leaf mr-3"></i>Reflexión:</h4>
+                        <p class="italic text-base md:text-lg leading-relaxed">"Si cuido mi cuerpo con alimentos locales, cuido mi economía local y reduzco la huella de carbono. Es un acto ético."</p>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 flex flex-col h-auto md:h-full">
+                    <div class="img-container rounded-2xl h-48 md:h-full mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&amp;w=600&amp;auto=format&amp;fit=crop" alt="Consumo Responsable">
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg text-center">
+                        <p class="text-sm font-bold text-gray-600">Ética Digital</p>
+                        <p class="text-xs text-gray-500">No compartir "fake news" de salud es responsabilidad moral.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 7</div>
+    </div>
+
+    <div class="magazine-page p-0 flex flex-col bg-gray-900 text-white min-h-[600px] md:min-h-0">
+        <div class="h-64 md:h-1/2 w-full relative overflow-hidden">
+             <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Arte Creativo" class="transform scale-110">
+             <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent h-24 md:h-48"></div>
+             <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 z-10">
+                 <h2 class="text-5xl md:text-7xl font-serif font-bold text-white drop-shadow-lg">Arte &amp;<br>Existencia</h2>
+             </div>
+        </div>
+        <div class="h-auto md:h-1/2 p-8 md:p-14 flex flex-col justify-center bg-gray-900">
+            <blockquote class="text-2xl md:text-4xl font-serif italic text-center mb-8 md:mb-12 text-yellow-400 leading-snug border-y border-gray-700 py-6">
+                "El arte limpia del alma el polvo de la vida cotidiana."
+            </blockquote>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div class="border-l-4 border-yellow-500 pl-6">
+                    <h4 class="font-bold text-xl md:text-2xl mb-2 md:mb-3 text-yellow-500">Estética</h4>
+                    <p class="text-sm md:text-base text-gray-300 leading-relaxed">
+                        Nietzsche: la vida como fenómeno estético. Diseña tus hábitos como un artista.
+                    </p>
+                </div>
+                <div class="border-l-4 border-yellow-500 pl-6">
+                    <h4 class="font-bold text-xl md:text-2xl mb-2 md:mb-3 text-yellow-500">Arteterapia</h4>
+                    <p class="text-sm md:text-base text-gray-300 leading-relaxed">
+                        Sublimación: transformar angustias en arte para sanar.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:block page-number text-gray-500">Página 8</div>
+    </div>
+
+    <div class="magazine-page bg-orange-50">
+        <div class="page-content">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-orange-900 mb-6 md:mb-8 text-center border-b-4 border-orange-200 pb-4 md:pb-6">Diálogos</h2>
+            <p class="text-center text-sm md:text-base text-gray-600 italic mb-8 md:mb-10">Aplicando la Mayéutica.</p>
+            
+            <div class="space-y-6 md:space-y-8 flex-grow px-2 md:px-6">
+                <div class="flex gap-4 md:gap-6 items-start group">
+                    <div class="bg-blue-600 text-white w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold shrink-0 shadow-lg text-lg md:text-xl">A</div>
+                    <div class="bg-white p-4 md:p-6 rounded-2xl shadow-md text-sm md:text-base w-full relative">
+                        <p class="text-blue-800 font-bold text-xs mb-1 uppercase tracking-wider">Alumno</p>
+                        <p>"Sócrates, prefiero esta hamburguesa. La vida es corta, hay que disfrutar."</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 md:gap-6 items-start flex-row-reverse group">
+                    <div class="bg-gray-800 text-white w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold shrink-0 overflow-hidden shadow-lg border-2 md:border-4 border-white">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/450px-Socrate_du_Louvre.jpg" alt="Sócrates" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-white p-4 md:p-6 rounded-2xl shadow-md text-sm md:text-base text-right border-r-4 md:border-r-8 border-gray-800 w-full relative">
+                        <p class="text-gray-800 font-bold text-xs mb-1 uppercase tracking-wider">Sócrates</p>
+                        <p>"¿Es corta la vida o la acortamos con vicios? ¿Es libre el esclavo de sus apetitos?"</p>
+                    </div>
+                </div>
+
+                 <div class="flex gap-4 md:gap-6 items-start group">
+                    <div class="bg-blue-600 text-white w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold shrink-0 shadow-lg text-lg md:text-xl">A</div>
+                    <div class="bg-white p-4 md:p-6 rounded-2xl shadow-md text-sm md:text-base w-full relative">
+                        <p class="text-blue-800 font-bold text-xs mb-1 uppercase tracking-wider">Alumno</p>
+                        <p>"Pero se siente bien. ¿Qué tiene de malo el placer?"</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 md:gap-6 items-start flex-row-reverse group">
+                    <div class="bg-gray-800 text-white w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold shrink-0 overflow-hidden shadow-lg border-2 md:border-4 border-white">
+                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/450px-Socrate_du_Louvre.jpg" alt="Sócrates" class="w-full h-full object-cover">
+                    </div>
+                    <div class="bg-white p-4 md:p-6 rounded-2xl shadow-md text-sm md:text-base text-right border-r-4 md:border-r-8 border-gray-800 w-full relative">
+                        <p class="text-gray-800 font-bold text-xs mb-1 uppercase tracking-wider">Sócrates</p>
+                        <p>"¿Llamas 'bien' a lo que daña tu razón? <em>'Comer para vivir, no vivir para comer'</em>."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 md:mt-auto text-center bg-orange-100 p-6 md:p-8 rounded-xl border border-orange-200 shadow-inner">
+                <i class="fas fa-pen-nib text-3xl md:text-4xl text-orange-600 mb-4"></i>
+                <h3 class="font-bold text-orange-900 text-xl md:text-2xl mb-2">Actividad</h3>
+                <p class="text-sm md:text-base text-gray-800 mb-4">Escribe tu propio diálogo socrático sobre un hábito no saludable.</p>
+            </div>
+        </div>
+        <div class="page-number">Página 9</div>
+    </div>
+
+    <div class="magazine-page">
+        <div class="page-content">
+            <header class="text-center mb-8 md:mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-teal-800 border-b-4 border-teal-500 inline-block pb-4">Decálogo Filosófico</h2>
+                <p class="text-gray-500 mt-2 md:mt-4 text-base md:text-lg">Sabiduría práctica</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10 text-base mb-8 md:mb-10">
+                <div class="bg-teal-50 p-4 md:p-6 rounded-xl border border-teal-100 shadow-sm">
+                    <h4 class="font-bold text-teal-900 text-lg md:text-xl mb-2 flex items-center"><span class="text-2xl md:text-3xl text-teal-500 mr-3">01</span> Conócete</h4>
+                    <p class="text-sm md:text-base text-gray-700">Sé un científico de tu cuerpo. Observa qué te da energía real.</p>
+                </div>
+                <div class="bg-teal-50 p-4 md:p-6 rounded-xl border border-teal-100 shadow-sm">
+                    <h4 class="font-bold text-teal-900 text-lg md:text-xl mb-2 flex items-center"><span class="text-2xl md:text-3xl text-teal-500 mr-3">02</span> Equilibrio</h4>
+                    <p class="text-sm md:text-base text-gray-700">Ni sedentarismo ni obsesión. Virtud en el término medio.</p>
+                </div>
+                <div class="bg-teal-50 p-4 md:p-6 rounded-xl border border-teal-100 shadow-sm">
+                    <h4 class="font-bold text-teal-900 text-lg md:text-xl mb-2 flex items-center"><span class="text-2xl md:text-3xl text-teal-500 mr-3">03</span> Amor Fati</h4>
+                    <p class="text-sm md:text-base text-gray-700">Acepta tu genética y trabaja con ella, no contra ella.</p>
+                </div>
+                <div class="bg-teal-50 p-4 md:p-6 rounded-xl border border-teal-100 shadow-sm">
+                    <h4 class="font-bold text-teal-900 text-lg md:text-xl mb-2 flex items-center"><span class="text-2xl md:text-3xl text-teal-500 mr-3">04</span> Ayuno Digital</h4>
+                    <p class="text-sm md:text-base text-gray-700">Sin pantallas antes de dormir. Evita la comparación social.</p>
+                </div>
+                <div class="bg-teal-50 p-4 md:p-6 rounded-xl border border-teal-100 shadow-sm">
+                    <h4 class="font-bold text-teal-900 text-lg md:text-xl mb-2 flex items-center"><span class="text-2xl md:text-3xl text-teal-500 mr-3">05</span> Amistad</h4>
+                    <p class="text-sm md:text-base text-gray-700">Rodéate de amigos que te inspiren salud, no vicios.</p>
+                </div>
+                <div class="bg-teal-50 p-4 md:p-6 rounded-xl border border-teal-100 shadow-sm">
+                    <h4 class="font-bold text-teal-900 text-lg md:text-xl mb-2 flex items-center"><span class="text-2xl md:text-3xl text-teal-500 mr-3">06</span> Memento Mori</h4>
+                    <p class="text-sm md:text-base text-gray-700">La vida es finita. No la desperdicies en pereza.</p>
+                </div>
+            </div>
+
+            <div class="mt-auto hidden md:block">
+                <div class="img-container rounded-xl h-60 shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Equilibrio">
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 10</div>
+    </div>
+
+    <div class="magazine-page flex flex-col justify-center items-center text-center relative py-12 md:py-0">
+        <div class="absolute inset-0 border-8 md:border-[16px] border-double border-gray-100 m-4 md:m-8 pointer-events-none"></div>
+        
+        <div class="max-w-3xl z-10 px-6 md:px-10">
+            <h2 class="text-4xl md:text-6xl font-serif font-bold text-blue-900 mb-8 md:mb-10">El Arte de Vivir</h2>
+            
+            <p class="text-lg md:text-2xl text-gray-700 leading-relaxed mb-8 md:mb-10 font-light">
+                Desde Atenas hasta hoy, la conclusión es contundente:
+            </p>
+            <p class="text-xl md:text-2xl text-blue-900 font-serif italic mb-8 md:mb-12 leading-relaxed font-bold px-4">
+                "La salud no es un producto; es una sabiduría (Phronesis) que se practica."
+            </p>
+            <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-8 md:mb-12">
+                No se trata de perfección, sino de vivir con consciencia plena en cada elección.
+            </p>
+            
+            <div class="bg-blue-900 text-white p-8 md:p-12 rounded-2xl shadow-2xl my-4 md:my-8 relative overflow-hidden">
+                <i class="fas fa-quote-left text-4xl md:text-6xl text-blue-700 absolute top-4 left-4 md:top-6 md:left-6 opacity-50"></i>
+                <p class="text-2xl md:text-3xl font-serif italic relative z-10 leading-snug">
+                    "Que la comida sea tu medicina."
+                </p>
+                <p class="mt-4 md:mt-8 font-bold relative z-10 text-yellow-400 text-lg md:text-xl tracking-widest">- HIPÓCRATES</p>
+            </div>
+
+            <p class="text-xs md:text-sm text-gray-400 font-bold mt-8 md:mt-16 uppercase tracking-[0.3em]">
+                Que tu vida sea tu mejor argumento.
+            </p>
+        </div>
+        <div class="page-number">Página 11</div>
+    </div>
+
+    <div class="magazine-page bg-gray-900 text-gray-300">
+        <div class="page-content flex flex-col justify-between h-full">
+            <div>
+                <div class="flex items-center justify-center mb-8 md:mb-12">
+                    <div class="h-px w-16 md:w-32 bg-yellow-500"></div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mx-4 md:mx-8 uppercase tracking-widest">Créditos</h2>
+                    <div class="h-px w-16 md:w-32 bg-yellow-500"></div>
+                </div>
+
+                <div class="mb-8 md:mb-16">
+                    <h3 class="text-yellow-500 font-bold text-2xl md:text-3xl mb-6 md:mb-10 text-center">Equipo</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 text-center">
+                        <div class="bg-gray-800 p-4 md:p-6 rounded-lg border border-gray-700">
+                            <p class="text-white font-bold text-lg md:text-xl mb-1">Gómez Ortíz Jonathan Uziel</p>
+                            <p class="text-xs md:text-sm text-gray-400 uppercase tracking-wide">Edición</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 md:p-6 rounded-lg border border-gray-700">
+                            <p class="text-white font-bold text-lg md:text-xl mb-1">López Cruz Dante Alejandro</p>
+                            <p class="text-xs md:text-sm text-gray-400 uppercase tracking-wide">Investigación</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 md:p-6 rounded-lg border border-gray-700">
+                            <p class="text-white font-bold text-lg md:text-xl mb-1">López Martinez Braulio Jesus</p>
+                            <p class="text-xs md:text-sm text-gray-400 uppercase tracking-wide">Diseño</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 md:p-6 rounded-lg border border-gray-700">
+                            <p class="text-white font-bold text-lg md:text-xl mb-1">Noriega Jimenez Moises Eli</p>
+                            <p class="text-xs md:text-sm text-gray-400 uppercase tracking-wide">Redacción</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 md:p-6 rounded-lg border border-gray-700">
+                            <p class="text-white font-bold text-lg md:text-xl mb-1">Gática Rojas Jose Antonio</p>
+                            <p class="text-xs md:text-sm text-gray-400 uppercase tracking-wide">Multimedia</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 md:p-6 rounded-lg border border-gray-700">
+                            <p class="text-white font-bold text-lg md:text-xl mb-1">García Caballero Diego</p>
+                            <p class="text-xs md:text-sm text-gray-400 uppercase tracking-wide">Revisión</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mb-8 md:mb-12 bg-black/30 p-6 md:p-8 rounded-xl">
+                    <p class="text-white font-bold text-lg md:text-2xl mb-2">Pensamiento Filosófico</p>
+                    <p class="text-gray-400 text-base md:text-xl">Docente: M.P Luz María Tepach Chapol</p>
+                    <p class="text-yellow-500 mt-2 md:mt-4 font-mono">2024-2025</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 md:pt-8">
+                <p class="text-[10px] text-gray-600 text-center uppercase tracking-wider leading-relaxed">
+                    Recursos: Foucault, Aristóteles, Jonas, Nietzsche, Sartre. Imágenes: Unsplash.
+                </p>
+            </div>
+        </div>
+        <div class="page-number text-gray-500 border-gray-700">Página 12</div>
+    </div>
+
+</body>
+</index.html>
