@@ -1,0 +1,671 @@
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida Saludable y Pensamiento Crítico: Una Mirada Filosófica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #525252;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .magazine-page {
+            width: 100%;
+            max-width: 850px; 
+            /* Altura fija A4 aprox en pixeles para consistencia al imprimir */
+            height: 1150px; 
+            background: white;
+            margin: 30px auto;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always; /* Fuerza salto de página al imprimir */
+        }
+        .page-content {
+            padding: 50px;
+            flex-grow: 1;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+        }
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: bold;
+            border-top: 3px solid #eab308;
+            padding-top: 5px;
+            z-index: 20;
+        }
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 4.2rem;
+            line-height: 0.8;
+            font-weight: bold;
+            margin-right: 0.15em;
+            color: #1e3a8a;
+            font-family: 'Playfair Display', serif;
+        }
+        p {
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+        
+        .img-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Ocultar navegación al imprimir */
+        /* Este bloque garantiza que el diseño sea estable al Guardar como PDF */
+@media print {
+    /* Oculta el botón y otros elementos no deseados en la impresión */
+    .no-print {
+        display: none !important;
+    }
+
+    /* Reglas clave para la estabilidad del PDF (asumiendo que su contenedor de página es '.page') */
+    .page {
+        /* Define el tamaño A4 (210mm x 297mm) */
+        width: 210mm !important; 
+        min-height: 297mm !important;
+        
+        /* FUERZA un salto de página después de cada sección con la clase 'page' */
+        page-break-after: always !important; 
+        
+        /* Evita que el contenido de la página se corte a la mitad */
+        page-break-inside: avoid !important;
+        
+        /* Ajusta márgenes para la impresión */
+        margin: 0 !important; 
+        padding: 20mm 15mm !important; 
+        
+        box-shadow: none !important;
+    }
+
+    /* Refuerza la regla para evitar cortes en bloques de contenido */
+    .content-block, .article, .section { 
+        page-break-inside: avoid !important;
+    }
+
+    /* Elimina el salto de página después del último elemento */
+    .page:last-child {
+        page-break-after: auto !important;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="magazine-page p-0 relative bg-gray-900">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1559586616-361e18714958?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Estatua Griega Arte">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/95 via-blue-900/30 to-transparent z-1"></div>
+
+        <div class="relative z-10 h-full flex flex-col justify-between p-12 text-white">
+            <div class="border-t-4 border-yellow-500 pt-6">
+                <h2 class="text-xl tracking-[0.3em] uppercase font-light">Proyecto Integrador</h2>
+                <p class="text-sm opacity-90 mt-2 font-mono">Pensamiento Filosófico y Humanidades 1</p>
+            </div>
+
+            <div class="text-center my-auto">
+                <h1 class="text-8xl font-serif font-bold leading-none mb-6 drop-shadow-2xl">
+                    VIDA<br>
+                    <span class="text-yellow-400 italic">SALUDABLE</span>
+                </h1>
+                <div class="h-1 w-40 bg-white mx-auto mb-6"></div>
+                <p class="text-3xl font-light tracking-wider uppercase">
+                    &amp; Pensamiento Crítico
+                </p>
+                <div class="mt-10 inline-block bg-black/50 backdrop-blur-md px-10 py-4 rounded-full border border-white/30">
+                    <p class="text-lg italic font-serif">"Una mirada filosófica al bienestar integral"</p>
+                </div>
+            </div>
+
+            <div class="mt-auto grid grid-cols-2 gap-8 bg-black/40 p-8 rounded-xl backdrop-blur-md border-l-8 border-yellow-500">
+                <div>
+                    <h3 class="font-bold text-yellow-400 mb-3 uppercase text-sm tracking-wider">En esta edición:</h3>
+                    <ul class="text-sm space-y-2 font-light">
+                        <li><i class="fas fa-chevron-right text-xs mr-2"></i> Foucault: Tecnologías del Yo</li>
+                        <li><i class="fas fa-chevron-right text-xs mr-2"></i> La Virtud Aristotélica</li>
+                        <li><i class="fas fa-chevron-right text-xs mr-2"></i> Bioética y Ecología</li>
+                        <li><i class="fas fa-chevron-right text-xs mr-2"></i> Estoicismo Moderno</li>
+                    </ul>
+                </div>
+                <div class="text-right flex flex-col justify-end">
+                    <p class="font-bold text-xl">Noviembre 2025</p>
+                    <p class="text-sm opacity-80">Volumen 1 | Edición Especial</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number text-white border-white">Página 1</div>
+    </div>
+
+    <div class="magazine-page">
+        <div class="page-content">
+            <header class="border-b-4 border-blue-900 pb-6 mb-10 flex justify-between items-end">
+                <h2 class="text-6xl font-serif text-blue-900 font-bold">Editorial</h2>
+                <span class="text-gray-500 text-sm uppercase font-bold tracking-wider mb-2">La Voz Estudiantil</span>
+            </header>
+
+            <div class="flex flex-col h-full gap-8">
+                <div class="flex gap-8 items-stretch">
+                    <div class="w-1/2">
+                        <div class="img-container rounded-lg shadow-lg h-72">
+                            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&amp;w=600&amp;auto=format&amp;fit=crop" alt="Biblioteca y estudio">
+                        </div>
+                    </div>
+                    <div class="w-1/2 flex flex-col justify-center bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-400">
+                         <blockquote class="text-2xl font-serif text-blue-900 italic leading-relaxed">
+                            "La filosofía no es un templo para la adoración de cenizas, sino el fuego que enciende la antorcha de la vida consciente."
+                        </blockquote>
+                    </div>
+                </div>
+                
+                <div class="text-gray-800 flex-grow text-lg">
+                    <p class="drop-cap">
+                        ¿Qué significa realmente vivir saludablemente en el siglo XXI? En un mundo post-pandemia, saturado de "fake news", dietas milagrosas y una presión estética abrumadora en redes sociales, la filosofía emerge como una necesidad de supervivencia. No es solo una materia académica; es la brújula ética que necesitamos para navegar la complejidad de nuestra existencia.
+                    </p>
+                    <p>
+                        Este proyecto integrador nace de una inquietud colectiva: la urgencia de recuperar la soberanía sobre nuestros cuerpos y mentes. Siguiendo a pensadores clásicos y contemporáneos, esta revista busca diseccionar el concepto de "Bienestar Integral". Entendemos que la salud no es un estado estático, sino un *florecimiento* constante de nuestras capacidades humanas.
+                    </p>
+                    <p>
+                        A través de estas páginas, exploraremos cómo el <strong>pensamiento crítico</strong> actúa como un sistema inmunológico mental. Si Sócrates afirmó que "una vida sin examen no merece la pena ser vivida", nosotros añadimos que "una vida sin cuidado consciente no puede ser plenamente libre". Invitamos al lector a desafiar sus prejuicios y a construir una vida saludable desde la autonomía y la razón.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 2</div>
+    </div>
+
+    <div class="magazine-page">
+        <div class="h-8 bg-blue-900 w-full absolute top-0 left-0"></div>
+        <div class="page-content mt-6">
+            <h2 class="text-5xl font-serif text-gray-900 font-bold leading-none mb-4">Filosofía del Bienestar</h2>
+            <h3 class="text-3xl font-serif text-yellow-600 italic mb-10 border-b-2 border-gray-200 pb-4">Más Allá del Cuerpo Físico</h3>
+
+            <div class="flex flex-col h-full">
+                <div class="text-gray-800 columns-2 gap-12 mb-8" style="column-fill: balance;">
+                    <p>
+                        En la antigüedad grecorromana, la medicina y la filosofía eran hermanas inseparables. Galeno, el famoso médico, afirmaba que "el mejor médico es también filósofo". Cuidar el cuerpo (soma) requería entender el alma (psique), y sanar el alma era indispensable para la vitalidad física. El aforismo <em>"Mens sana in corpore sano"</em> no era publicidad deportiva, sino una plegaria por la integridad del ser.
+                    </p>
+                    <p>
+                        <strong>Foucault y el "Cuidado de Sí":</strong>
+                        Michel Foucault, en sus últimos seminarios, rescató el concepto de <em>Epimeleia heautou</em> ("inquietud de sí"). Para Foucault, el sujeto no "es", sino que "se hace". A través de las "tecnologías del yo" (escritura de diarios, meditación, regímenes dietéticos), nos esculpimos a nosotros mismos.
+                    </p>
+                    <p>
+                        Vivir saludablemente hoy es un acto de resistencia política (Biopolítica). El mercado quiere cuerpos dóciles que consuman sin parar. El pensamiento crítico nos permite practicar la <strong>Parrhesía</strong> (el hablar franco): tener la valentía de admitir ante nosotros mismos qué hábitos nos destruyen y tener el coraje de cambiarlos.
+                    </p>
+                    <p>
+                        Detenerse ante un estante del supermercado y preguntar "¿Esto nutre mi vida o solo alimenta una industria?" es el primer paso de una revolución interior. La salud deja de ser una imposición estética para convertirse en una práctica de libertad.
+                    </p>
+                </div>
+
+                <div class="w-full mt-auto">
+                    <div class="img-container rounded-lg shadow-xl h-80">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Alimentación Saludable y Estilo de Vida">
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4 text-center italic bg-gray-100 p-3 rounded-lg border border-gray-200">
+                        <i class="fas fa-info-circle mr-2"></i>La "Diaita" griega abarcaba alimentación, ejercicio y sueño; un régimen total de vida para la excelencia.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 3</div>
+    </div>
+
+    <div class="magazine-page bg-gray-50">
+        <div class="page-content">
+            <div class="flex items-center mb-10">
+                <div class="w-20 h-2 bg-blue-900 mr-6 rounded-full"></div>
+                <h3 class="text-4xl font-serif text-blue-900 font-bold">Eudaimonia vs. Hedonismo</h3>
+            </div>
+
+            <div class="flex gap-10 h-full">
+                <div class="w-2/3 flex flex-col justify-between">
+                    <div class="text-lg text-gray-800">
+                        <p>
+                            Una distinción crucial es la diferencia entre <strong>Hedonismo</strong> (búsqueda del placer inmediato y evitación del dolor) y <strong>Eudaimonia</strong> (felicidad entendida como plenitud o realización), propuesta por Aristóteles.
+                        </p>
+                        <p>
+                            Nuestra sociedad moderna es hiper-hedonista y utilitarista. Buscamos el "subidón" de dopamina del azúcar, el alcohol o el "like" rápido. Sin embargo, este placer es efímero y, paradójicamente, su exceso conduce al dolor. La Eudaimonia sugiere que el bienestar real proviene de vivir de acuerdo con la <strong>Virtud (Areté)</strong>.
+                        </p>
+                        <div class="bg-white p-8 rounded-xl shadow-md border-l-8 border-blue-900 my-8">
+                            <h4 class="font-bold text-blue-900 mb-4 text-xl"><i class="fas fa-balance-scale mr-2"></i>La Doctrina del "Justo Medio"</h4>
+                            <p class="text-base m-0 leading-relaxed">
+                                Para Aristóteles, la salud y la virtud se encuentran en el equilibrio (Mesotes).
+                                <br><br>
+                                • <strong>Defecto:</strong> Anorexia o sedentarismo total.<br>
+                                • <strong>Exceso:</strong> Gula, vigorexia o consumo obsesivo.<br>
+                                • <strong>Virtud:</strong> Templanza. Comer para nutrirse, ejercitarse para fortalecerse.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h4 class="font-serif font-bold text-2xl mb-4 text-gray-800">Comparativa de Enfoques</h4>
+                        <table class="w-full text-base bg-white shadow-lg rounded-lg overflow-hidden">
+                            <thead class="bg-blue-900 text-white">
+                                <tr>
+                                    <th class="p-4 text-left">Perspectiva</th>
+                                    <th class="p-4 text-left">Objetivo Principal</th>
+                                    <th class="p-4 text-left">Resultado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b hover:bg-blue-50">
+                                    <td class="p-4 font-bold text-blue-900">Hedonismo</td>
+                                    <td class="p-4">Placer sensorial ya.</td>
+                                    <td class="p-4">Vacío y adicción.</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50">
+                                    <td class="p-4 font-bold text-blue-900">Estoicismo</td>
+                                    <td class="p-4">Control y Razón.</td>
+                                    <td class="p-4">Resiliencia y paz.</td>
+                                </tr>
+                                <tr class="hover:bg-blue-50">
+                                    <td class="p-4 font-bold text-blue-900">Aristotelismo</td>
+                                    <td class="p-4">Equilibrio virtuoso.</td>
+                                    <td class="p-4">Salud sostenible.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="w-1/3 flex flex-col h-full">
+                    <div class="img-container rounded-lg shadow-xl h-full bg-white p-4 border border-gray-200">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Aristotle_Altemps_Inv8575.jpg/500px-Aristotle_Altemps_Inv8575.jpg" alt="Busto de Aristóteles" style="object-fit: contain;">
+                    </div>
+                    <div class="bg-blue-900 text-white p-4 rounded-b-lg mt-[-5px] relative z-10 text-center">
+                        <p class="font-bold text-lg">Aristóteles</p>
+                        <p class="text-xs italic opacity-80">"Somos lo que hacemos repetidamente. La excelencia, entonces, no es un acto, sino un hábito."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 4</div>
+    </div>
+
+    <div class="magazine-page">
+        <div class="page-content">
+            <div class="flex items-center mb-10 border-b-2 border-purple-200 pb-6">
+                <div class="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mr-6 shadow-lg"><i class="fas fa-brain"></i></div>
+                <h2 class="text-5xl font-serif text-purple-900 font-bold">Salud Mental y Estoicismo</h2>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-12 mb-10">
+                <div class="flex flex-col justify-center text-lg">
+                    <p class="text-gray-700 font-medium mb-6">
+                        La ansiedad nace de la brecha entre la realidad y nuestras expectativas. Cuando intentamos controlar lo incontrolable, sufrimos.
+                    </p>
+                    <p class="text-gray-700">
+                        Los estoicos nos regalan la <strong>Dicotomía del Control</strong>: Hay cosas que dependen de nosotros (nuestros juicios, deseos, acciones) y cosas que no (el clima, la genética, la opinión de otros). La libertad mental (Ataraxia) nace al enfocarse radicalmente solo en lo interno.
+                    </p>
+                </div>
+                <div class="img-container rounded-xl shadow-xl h-64 rotate-2 transform hover:rotate-0 transition duration-500">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&amp;w=600&amp;auto=format&amp;fit=crop" alt="Paz Mental Zen y Piedras">
+                </div>
+            </div>
+
+            <div class="bg-purple-50 p-10 rounded-2xl border border-purple-100 flex-grow flex flex-col">
+                <h3 class="text-2xl font-bold text-purple-800 mb-8 text-center border-b border-purple-200 pb-4">Botiquín Filosófico de Emergencia</h3>
+                
+                <div class="grid grid-cols-3 gap-8 text-center mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                        <div class="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-pause text-purple-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">La Pausa</h4>
+                        <p class="text-sm text-gray-600">No reacciones al estímulo. Date un segundo para que la razón intervenga antes que la emoción.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                        <div class="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-globe-americas text-purple-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Perspectiva</h4>
+                        <p class="text-sm text-gray-600">"Vista de pájaro". Imagina tu problema desde el espacio. Verás que es minúsculo e irrelevante.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                        <div class="bg-purple-100 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-pen-fancy text-purple-600 text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Examen</h4>
+                        <p class="text-sm text-gray-600">Al final del día pregunta: "¿Qué mal he curado hoy? ¿En qué he mejorado?"</p>
+                    </div>
+                </div>
+
+                <div class="mt-auto bg-white p-6 rounded-lg border-l-4 border-purple-600 shadow-inner">
+                    <h4 class="font-bold text-purple-900 flex items-center"><i class="fas fa-spa mr-2"></i>Ejercicio Práctico: Premeditatio Malorum</h4>
+                    <p class="text-sm text-gray-600 m-0 mt-2">
+                        Por la mañana, di para tus adentros: "Hoy me encontraré con gente entrometida, ingrata, soberbia. Todo esto les acontece por ignorancia del bien y del mal". Prepárate mentalmente para las dificultades, y no te tomarán por sorpresa. (Marco Aurelio)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 5</div>
+    </div>
+
+    <div class="magazine-page bg-red-50">
+        <div class="page-content">
+            <h2 class="text-6xl font-serif font-bold text-red-900 mb-10 text-right border-b-8 border-red-200 pb-4 inline-block w-full">Libertad Radical</h2>
+            
+            <div class="flex flex-row-reverse gap-12 h-full items-center">
+                <div class="w-1/2 text-justify text-gray-800 flex flex-col justify-center">
+                    <h3 class="text-3xl font-bold mb-6 text-red-800 leading-tight">"Estamos condenados a ser libres"</h3>
+                    <p class="text-lg">
+                        Jean-Paul Sartre llamaba <strong>Mala Fe</strong> (Mauvaise foi) a mentirnos a nosotros mismos diciendo "no tengo opción". Excusas como "es que mi genética me obliga a comer así" o "no tengo tiempo para el ejercicio" son formas de evadir la angustiosa responsabilidad de nuestra libertad.
+                    </p>
+                    <p class="text-lg">
+                        El existencialismo nos recuerda que la existencia precede a la esencia. No nacemos definidos; nos definimos con cada elección. <strong>Tu cuerpo es tu proyecto vital.</strong> Cada vez que eliges el sedentarismo o la actividad, estás esculpiendo quién eres.
+                    </p>
+                    <div class="bg-white p-6 rounded-lg shadow-lg border-l-8 border-red-500 mt-6">
+                        <p class="m-0 font-medium text-red-900">
+                            <strong>La Angustia:</strong> Kierkegaard decía que la angustia es el vértigo de la libertad. Es más fácil seguir al rebaño, pero la vida auténtica requiere el coraje de elegir el bienestar propio, sin excusas.
+                        </p>
+                    </div>
+                </div>
+                <div class="w-1/2 h-full">
+                    <div class="img-container rounded-xl shadow-2xl h-full bg-white p-20">
+                        <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&amp;w=600&amp;auto=format&amp;fit=crop" alt="Camino Libre y Elección">
+                        <p class="text-center text-sm text-gray-500 mt-6 italic">"El hombre es lo que hace con lo que hicieron de él." - Sartre</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 6</div>
+    </div>
+
+    <div class="magazine-page">
+        <div class="page-content">
+            <div class="border-l-[12px] border-green-600 pl-8 mb-10">
+                <h2 class="text-6xl font-serif text-gray-900 font-bold">Bioética</h2>
+                <h3 class="text-3xl text-green-700 uppercase tracking-widest mt-2 font-light">Mi salud y el Planeta</h3>
+            </div>
+
+            <div class="flex gap-12 h-full">
+                <div class="w-1/2 text-base text-justify text-gray-800 flex flex-col gap-6">
+                    <p>
+                        A menudo pensamos que la salud es un asunto privado, pero Aristóteles nos recuerda que somos "Animales Políticos". Nuestras decisiones de salud afectan a la comunidad. Emmanuel Levinas nos habla de la responsabilidad infinita ante el "Rostro del Otro": mi cuidado (o descuido) impacta directamente en la vulnerabilidad de los demás.
+                    </p>
+                    <p>
+                        <strong>Hans Jonas y el Principio de Responsabilidad:</strong>
+                        Su imperativo ecológico nos dice: "Obra de tal modo que los efectos de tu acción sean compatibles con la permanencia de una vida auténtica en la Tierra". Comprar comida chatarra ultraprocesada no solo daña nuestras arterias, sino que financia industrias que deforestan, contaminan y explotan recursos hídricos.
+                    </p>
+                    <div class="bg-green-50 p-8 rounded-2xl border border-green-200 text-green-900 flex-grow flex flex-col justify-center shadow-sm">
+                        <h4 class="font-bold mb-4 text-xl flex items-center"><i class="fas fa-leaf mr-3"></i>Reflexión Sistémica:</h4>
+                        <p class="italic text-lg leading-relaxed">"Si cuido mi cuerpo con alimentos naturales y locales, estoy cuidando simultáneamente mi microbiota, la economía de los agricultores de mi comunidad y reduciendo la huella de carbono. Es un acto ético integral."</p>
+                    </div>
+                </div>
+
+                <div class="w-1/2 flex flex-col h-full">
+                    <div class="img-container rounded-2xl h-full mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&amp;w=600&amp;auto=format&amp;fit=crop" alt="Consumo Responsable y Mercado">
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg text-center">
+                        <p class="text-sm font-bold text-gray-600">Ética Digital</p>
+                        <p class="text-xs text-gray-500">No compartir "fake news" de salud ni promover estándares corporales irreales también es nuestra responsabilidad moral en redes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 7</div>
+    </div>
+
+    <div class="magazine-page p-0 flex flex-col bg-gray-900 text-white">
+        <div class="h-1/2 w-full relative overflow-hidden">
+             <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&amp;w=1000&amp;auto=format&amp;fit=crop" alt="Arte Creativo y Pintura" class="transform scale-110">
+             <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent h-48"></div>
+             <div class="absolute bottom-10 left-10 z-10">
+                 <h2 class="text-7xl font-serif font-bold text-white drop-shadow-lg">Arte &amp;<br>Existencia</h2>
+             </div>
+        </div>
+        <div class="h-1/2 p-14 flex flex-col justify-center bg-gray-900">
+            <blockquote class="text-4xl font-serif italic text-center mb-12 text-yellow-400 leading-snug border-y border-gray-700 py-6">
+                "El arte limpia del alma el polvo de la vida cotidiana."
+            </blockquote>
+            
+            <div class="grid grid-cols-2 gap-12">
+                <div class="border-l-4 border-yellow-500 pl-6">
+                    <h4 class="font-bold text-2xl mb-3 text-yellow-500">Estética de la Existencia</h4>
+                    <p class="text-base text-gray-300 leading-relaxed">
+                        Nietzsche propuso ver la vida como un fenómeno estético. Somos escultores de nosotros mismos. Diseña tus hábitos, tu dieta y tu entorno con la creatividad y el cuidado de un artista.
+                    </p>
+                </div>
+                <div class="border-l-4 border-yellow-500 pl-6">
+                    <h4 class="font-bold text-2xl mb-3 text-yellow-500">Arteterapia</h4>
+                    <p class="text-base text-gray-300 leading-relaxed">
+                        La sublimación freudiana: transformar angustias en algo socialmente valioso. Expresar el dolor a través del dibujo, la escritura o la danza ayuda a objetivarlo, entenderlo y sanarlo.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="page-number text-gray-500">Página 8</div>
+    </div>
+
+    <div class="magazine-page bg-orange-50">
+        <div class="page-content">
+            <h2 class="text-5xl font-serif font-bold text-orange-900 mb-8 text-center border-b-4 border-orange-200 pb-6">Diálogos en la Cafetería</h2>
+            <p class="text-center text-gray-600 italic mb-10">Aplicando la Mayéutica: el arte de dar a luz a la verdad.</p>
+            
+            <div class="space-y-8 flex-grow px-6">
+                <div class="flex gap-6 items-start group">
+                    <div class="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center font-bold shrink-0 shadow-lg text-xl group-hover:scale-110 transition">A</div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md text-base w-full relative">
+                        <div class="absolute top-6 -left-3 w-0 h-0 border-t-[10px] border-t-transparent border-r-[15px] border-r-white border-b-[10px] border-b-transparent"></div>
+                        <p class="text-blue-800 font-bold text-sm mb-2 uppercase tracking-wider">Alumno</p>
+                        <p>"Sócrates, prefiero esta hamburguesa doble y el refresco gigante. La vida es corta, hay que disfrutar el momento, ¿no crees?"</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 items-start flex-row-reverse group">
+                    <div class="bg-gray-800 text-white w-14 h-14 rounded-full flex items-center justify-center font-bold shrink-0 overflow-hidden shadow-lg border-4 border-white group-hover:scale-110 transition">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/450px-Socrate_du_Louvre.jpg" alt="Sócrates">
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md text-base text-right border-r-8 border-gray-800 w-full relative">
+                        <div class="absolute top-6 -right-3 w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-white border-b-[10px] border-b-transparent"></div>
+                        <p class="text-gray-800 font-bold text-sm mb-2 uppercase tracking-wider">Sócrates</p>
+                        <p>"Interesante premisa. Pero dime, ¿es corta la vida por naturaleza, o nosotros la acortamos con nuestros vicios? ¿Es verdaderamente libre el hombre que es esclavo de sus apetitos inmediatos?"</p>
+                    </div>
+                </div>
+
+                 <div class="flex gap-6 items-start group">
+                    <div class="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center font-bold shrink-0 shadow-lg text-xl group-hover:scale-110 transition">A</div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md text-base w-full relative">
+                        <div class="absolute top-6 -left-3 w-0 h-0 border-t-[10px] border-t-transparent border-r-[15px] border-r-white border-b-[10px] border-b-transparent"></div>
+                        <p class="text-blue-800 font-bold text-sm mb-2 uppercase tracking-wider">Alumno</p>
+                        <p>"Pero se siente bien ahora mismo. Me hace feliz. ¿Qué tiene de malo el placer?"</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 items-start flex-row-reverse group">
+                    <div class="bg-gray-800 text-white w-14 h-14 rounded-full flex items-center justify-center font-bold shrink-0 overflow-hidden shadow-lg border-4 border-white group-hover:scale-110 transition">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Socrate_du_Louvre.jpg/450px-Socrate_du_Louvre.jpg" alt="Sócrates">
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-md text-base text-right border-r-8 border-gray-800 w-full relative">
+                        <div class="absolute top-6 -right-3 w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-white border-b-[10px] border-b-transparent"></div>
+                        <p class="text-gray-800 font-bold text-sm mb-2 uppercase tracking-wider">Sócrates</p>
+                        <p>"¿Llamas 'bien' a lo que daña la casa donde habita tu razón? Tal vez confundes el placer efímero de la lengua con la salud duradera del alma. Recuerda: <em>'Hay que comer para vivir, no vivir para comer'</em>."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-auto text-center bg-orange-100 p-8 rounded-xl border border-orange-200 shadow-inner">
+                <i class="fas fa-pen-nib text-4xl text-orange-600 mb-4"></i>
+                <h3 class="font-bold text-orange-900 text-2xl mb-2">Actividad de Reflexión</h3>
+                <p class="text-gray-800 mb-4">Identifica un hábito que sepas que no es saludable. Escribe tu propio diálogo socrático cuestionando por qué lo mantienes. ¿Buscas un bien real o un placer aparente?</p>
+                <div class="w-full h-1 bg-orange-300 rounded opacity-50"></div>
+            </div>
+        </div>
+        <div class="page-number">Página 9</div>
+    </div>
+
+    <div class="magazine-page">
+        <div class="page-content">
+            <header class="text-center mb-12">
+                <h2 class="text-4xl font-serif font-bold text-teal-800 border-b-4 border-teal-500 inline-block pb-4">Decálogo Filosófico</h2>
+                <p class="text-gray-500 mt-4 text-lg">Sabiduría práctica para la vida moderna</p>
+            </header>
+
+            <div class="grid grid-cols-2 gap-10 text-base mb-10">
+                <div class="bg-teal-50 p-6 rounded-xl border border-teal-100 shadow-sm hover:shadow-md transition">
+                    <h4 class="font-bold text-teal-900 text-xl mb-2 flex items-center"><span class="text-3xl text-teal-500 mr-3">01</span> Conócete a ti mismo</h4>
+                    <p class="text-gray-700">No sigas dietas de moda ciegamente. Sé un científico de tu cuerpo. Observa qué te da energía real y qué te la roba.</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-xl border border-teal-100 shadow-sm hover:shadow-md transition">
+                    <h4 class="font-bold text-teal-900 text-xl mb-2 flex items-center"><span class="text-3xl text-teal-500 mr-3">02</span> Nada en exceso</h4>
+                    <p class="text-gray-700">Busca el equilibrio. Ni sedentarismo total ni ejercicio obsesivo. La virtud está en el término medio sostenible.</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-xl border border-teal-100 shadow-sm hover:shadow-md transition">
+                    <h4 class="font-bold text-teal-900 text-xl mb-2 flex items-center"><span class="text-3xl text-teal-500 mr-3">03</span> Amor Fati</h4>
+                    <p class="text-gray-700">Ama tu destino. Acepta tu genética y constitución corporal. Trabaja *con* ella para potenciarla, no *contra* ella desde el odio.</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-xl border border-teal-100 shadow-sm hover:shadow-md transition">
+                    <h4 class="font-bold text-teal-900 text-xl mb-2 flex items-center"><span class="text-3xl text-teal-500 mr-3">04</span> Ayuno Digital</h4>
+                    <p class="text-gray-700">Establece 1 hora sagrada sin pantallas antes de dormir. La luz azul daña el sueño y la comparación social daña el alma.</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-xl border border-teal-100 shadow-sm hover:shadow-md transition">
+                    <h4 class="font-bold text-teal-900 text-xl mb-2 flex items-center"><span class="text-3xl text-teal-500 mr-3">05</span> Amistad Virtuosa</h4>
+                    <p class="text-gray-700">Rodéate de amigos que te inspiren a ser saludable y mejor persona, no de aquellos que te presionan hacia vicios.</p>
+                </div>
+                <div class="bg-teal-50 p-6 rounded-xl border border-teal-100 shadow-sm hover:shadow-md transition">
+                    <h4 class="font-bold text-teal-900 text-xl mb-2 flex items-center"><span class="text-3xl text-teal-500 mr-3">06</span> Memento Mori</h4>
+                    <p class="text-gray-700">Recuerda que morirás. La vida es finita y preciosa. No desperdicies tu tiempo vital en hábitos tóxicos o pereza.</p>
+                </div>
+            </div>
+
+            <div class="mt-auto">
+                <div class="img-container rounded-xl h-60 shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Equilibrio Natural y Zen">
+                </div>
+            </div>
+        </div>
+        <div class="page-number">Página 10</div>
+    </div>
+
+    <div class="magazine-page flex flex-col justify-center items-center text-center relative">
+        <div class="absolute inset-0 border-[16px] border-double border-gray-100 m-8 pointer-events-none"></div>
+        
+        <div class="max-w-3xl z-10 px-10">
+            <h2 class="text-6xl font-serif font-bold text-blue-900 mb-10">El Arte de Vivir</h2>
+            
+            <p class="text-2xl text-gray-700 leading-relaxed mb-10 font-light">
+                Hemos recorrido la historia del pensamiento occidental, desde el Ágora de Atenas hasta la modernidad líquida. La conclusión es contundente:
+            </p>
+            <p class="text-2xl text-blue-900 font-serif italic mb-12 leading-relaxed font-bold">
+                "La salud no es un producto que se compra en una tienda; es una sabiduría (Phronesis) que se practica a diario."
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed mb-12">
+                Al cuidar nuestro cuerpo con inteligencia y nuestra mente con verdad, nos volvemos seres humanos más completos, más libres y más felices. No se trata de buscar la perfección imposible, sino de vivir con consciencia plena en cada elección.
+            </p>
+            
+            <div class="bg-blue-900 text-white p-12 rounded-2xl shadow-2xl my-8 relative overflow-hidden transform hover:scale-105 transition duration-500">
+                <i class="fas fa-quote-left text-6xl text-blue-700 absolute top-6 left-6 opacity-50"></i>
+                <p class="text-3xl font-serif italic relative z-10 leading-snug">
+                    "Que la comida sea tu medicina y la medicina sea tu comida."
+                </p>
+                <p class="mt-8 font-bold relative z-10 text-yellow-400 text-xl tracking-widest">- HIPÓCRATES</p>
+            </div>
+
+            <p class="text-sm text-gray-400 font-bold mt-16 uppercase tracking-[0.3em]">
+                Que tu vida sea tu mejor argumento.
+            </p>
+        </div>
+        <div class="page-number">Página 11</div>
+    </div>
+
+    <div class="magazine-page bg-gray-900 text-gray-300">
+        <div class="page-content flex flex-col justify-between h-full">
+            <div>
+                <div class="flex items-center justify-center mb-12">
+                    <div class="h-px w-32 bg-yellow-500"></div>
+                    <h2 class="text-5xl font-serif font-bold text-white mx-8 uppercase tracking-widest">Créditos</h2>
+                    <div class="h-px w-32 bg-yellow-500"></div>
+                </div>
+
+                <div class="mb-16">
+                    <h3 class="text-yellow-500 font-bold text-3xl mb-10 text-center">Equipo de Realización</h3>
+                    <div class="grid grid-cols-2 gap-8 text-center">
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-yellow-500 transition">
+                            <p class="text-white font-bold text-xl mb-1">Gómez Ortíz Jonathan Uziel</p>
+                            <p class="text-sm text-gray-400 uppercase tracking-wide">Edición y Contenido</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-yellow-500 transition">
+                            <p class="text-white font-bold text-xl mb-1">López Cruz Dante Alejandro</p>
+                            <p class="text-sm text-gray-400 uppercase tracking-wide">Investigación Filosófica</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-yellow-500 transition">
+                            <p class="text-white font-bold text-xl mb-1">López Martinez Braulio Jesus</p>
+                            <p class="text-sm text-gray-400 uppercase tracking-wide">Diseño Gráfico</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-yellow-500 transition">
+                            <p class="text-white font-bold text-xl mb-1">Noriega Jimenez Moises Eli</p>
+                            <p class="text-sm text-gray-400 uppercase tracking-wide">Redacción y Estilo</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-yellow-500 transition">
+                            <p class="text-white font-bold text-xl mb-1">Gática Rojas Jose Antonio</p>
+                            <p class="text-sm text-gray-400 uppercase tracking-wide">Recopilación Multimedia</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-lg border border-gray-700 hover:border-yellow-500 transition">
+                            <p class="text-white font-bold text-xl mb-1">García Caballero Diego</p>
+                            <p class="text-sm text-gray-400 uppercase tracking-wide">Revisión Final</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mb-12 bg-black/30 p-8 rounded-xl">
+                    <p class="text-white font-bold text-2xl mb-2">Pensamiento Filosófico y Humanidades 1</p>
+                    <p class="text-gray-400 text-xl">Docente: M.P Luz María Tepach Chapol</p>
+                    <p class="text-yellow-500 mt-4 font-mono">Ciclo Escolar 2024-2025</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+                <h4 class="text-xs font-bold text-gray-500 uppercase mb-2 text-center">Bibliografía y Recursos</h4>
+                <p class="text-[10px] text-gray-600 text-center uppercase tracking-wider leading-relaxed">
+                    Foucault, M. (1984). Historia de la sexualidad 3. | Aristóteles. (2000). Ética a Nicómaco. | Jonas, H. (1995). El principio de responsabilidad. | Nietzsche, F. (2000). La gaya ciencia. | Sartre, J.P. El existencialismo es un humanismo. <br>
+                    Imágenes provistas por Unsplash bajo licencia libre para uso educativo.
+                </p>
+            </div>
+        </div>
+        <div class="page-number text-gray-500 border-gray-700">Página 12</div>
+    </div>
+    
+    <script>
+        function downloadHTML() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], {type: 'text/html'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Revista_Filosofica_Vida_Saludable.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+
+</body></html>
